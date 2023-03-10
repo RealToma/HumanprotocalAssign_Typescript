@@ -22,11 +22,7 @@ const Navbar = () => {
         TrustWallet: injected,
     };
     const walletConnectors: any = DESKTOP_CONNECTORS;
-    const { account, active, activate } = useWeb3React();
-
-    // const set_account_addr = (addr) => {
-    //   return addr.slice(0, 6) + "..." + addr.slice(-4);
-    // };
+    const { account, active, activate, deactivate } = useWeb3React();
 
     useEffect(() => {
         const currentWalletState = window.localStorage.getItem('CurrentWalletConnect');
@@ -53,7 +49,7 @@ const Navbar = () => {
                     } else {
                         setOpen(true);
                     }
-                    setOpen(true);
+                    // setOpen(true);
                 }}
                 onMouseLeave={() => {
                     setDrop(false);
@@ -74,6 +70,7 @@ const Navbar = () => {
                         onClick={async () => {
                             setDrop(false);
                             // await deactivate(window.localStorage.getItem('CurrentWalletConnect'));
+                            await deactivate();
                             window.localStorage.removeItem('CurrentWalletConnect');
                         }}
                     >
@@ -162,7 +159,8 @@ const StyledComponent = styled(Box)`
 
 const ConnectWalletBtn = styled(Box)`
     display: flex;
-    width: 10%;
+    position: relative;
+    width: 200px;
     height: 50px;
     justify-content: center;
     align-items: center;
@@ -177,7 +175,7 @@ const ConnectWalletBtn = styled(Box)`
     user-select: none;
     cursor: pointer;
     &:hover {
-        box-shadow: 0px 0px 10px white;
+        box-shadow: 0px 0px 20px #8366da;
     }
 `;
 
@@ -195,7 +193,7 @@ const ConnectWallet = styled(Box)`
     user-select: none;
     transition: 0.5s;
     &:hover {
-        box-shadow: 0px 0px 15px white;
+        box-shadow: 0px 0px 20px #8366da;
     }
 `;
 
@@ -287,25 +285,26 @@ const DropBox = styled(Box)`
     align-items: center;
     left: 0%;
     bottom: -40px;
-    width: 150px;
+    width: 200px;
     height: 40px;
+
     border-radius: 0px 0px 8px 8px;
     /* background: hsla(0,30%,100%,.8); */
     border: none;
-    transition: 0.5s;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: 600;
     font-size: 20px;
     line-height: 32px;
     letter-spacing: -0.01em;
-    color: #333;
+
+    color: white;
     cursor: pointer;
+    transition: 0.5s;
     &:hover {
-        transition: 0.5s;
         /* box-shadow: 0px 10px 10px rgb(0 0 0  / 20%), inset 2px 2px 2px #fff; */
         /* background: white; */
-        color: #93aebc;
+        color: #8366da;
     }
 `;
 

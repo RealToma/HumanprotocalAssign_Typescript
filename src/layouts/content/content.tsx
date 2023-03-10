@@ -148,7 +148,7 @@ const Content = () => {
                                         }
                                     >
                                         {index + 1}: {each[0]}, {'\u00a0'}
-                                        <span style={{ color: 'black' }}>
+                                        <span style={{ color: '#0ce7b4' }}>
                                             {formatAddress(each[1])}
                                         </span>
                                     </TextList01>
@@ -219,7 +219,7 @@ const LeftMintMox = styled(Box)`
     color: white;
     transition: 0.3s;
     &:hover {
-        box-shadow: 0px 0px 15px white;
+        box-shadow: 0px 0px 30px #8366da;
     }
     @media (max-width: 1600px) {
         width: 85% !important;
