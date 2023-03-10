@@ -97,7 +97,6 @@ const Content = () => {
                                 flex={'1'}
                                 justifyContent={'center'}
                                 alignItems={'center'}
-                                mr={'20px'}
                                 onClick={() => {
                                     handleSetMeows();
                                 }}
@@ -167,7 +166,6 @@ const Content = () => {
                                 flex={'1'}
                                 justifyContent={'center'}
                                 alignItems={'center'}
-                                mr={'20px'}
                                 onClick={() => {
                                     handleGetMeows();
                                 }}
@@ -204,6 +202,14 @@ const MintBox = styled(Box)`
     align-items: flex-start;
     width: 100%;
     margin-top: 200px;
+
+    @media (max-width: 1024px) {
+        margin-top: 50px;
+        flex-direction: column;
+        > div:nth-child(2) {
+            margin-top: 50px;
+        }
+    }
 `;
 const LeftMintMox = styled(Box)`
     display: flex;
